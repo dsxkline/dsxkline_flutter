@@ -6,7 +6,11 @@
 https://user-images.githubusercontent.com/105279193/168729994-1d809611-a9f6-41a8-bd2c-0e8d8051b6da.mp4
 
 # 大师兄K线图
+
 纯JS(ES5)语言进行开发，几乎完美适配所有浏览器平台(ie678除外)，移动端电脑端混合开发媲美原生体验！
+
+dsxkline 支持基本功能，滚动缩放滑动分页实时刷新，支持MA，BOLL、VOL、KDJ、MACD、RSI、WR、CCI、BIAS、PSY等指标
+
 支持主流开发平台 android,ios,flutter,web,h5,c#等
 
 SDK:
