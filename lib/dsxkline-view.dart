@@ -103,8 +103,8 @@ class _DsxklineViewState extends State<DsxklineView>
           if (value == 3) cycle = "week";
           if (value == 4) cycle = "month";
           if (value == 5) cycle = "m1";
-          // 更新界面大小等
-          //setState(() {});
+          // 更新状态
+          setState(() {});
           EasyLoading.show();
           // 开始 onLoading 方法
           DsxKlineNotification.startLoading(value >= 2 ? 2 : value, 0.0);
@@ -121,7 +121,14 @@ class _DsxklineViewState extends State<DsxklineView>
   }
 
   Widget buildKline() {
+    sides = ["VOL", "MACD", "KDJ", "RSI", "WR", "BIAS", "CCI", "PSY"];
     //print("model.type=${model.type}");
+    klineHeight = 200 + sides.length * 60;
+    if (cycle.startsWith("t")) {
+      // 分时图高度
+      sides = ["VOL", "MACD", "RSI"];
+      klineHeight = 200 + sides.length * sideHeight;
+    }
     return SizedBox(
       height: klineHeight,
       child: Row(
@@ -141,7 +148,7 @@ class _DsxklineViewState extends State<DsxklineView>
                 sideHeight: cycle.startsWith("t") ? sideHeight : 60,
                 lastClose: double.parse(model.lastClose ?? "0.0"),
                 main: const ["MA"],
-                sides: cycle.startsWith("timeline") ? ["VOL"] : ["VOL", "MACD"],
+                sides: sides,
                 onLoading: (BuildContext context, DsxKline dsxKline) {
                   // 开始加载数据
                   page = 1;

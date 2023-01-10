@@ -7,7 +7,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
-import 'dsx.kline.js.dart' show dsxKlineScript;
+import 'dsx.kline.1.1.0.js.dart' show dsxKlineScript;
 
 String html =
     '<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0" /><style>*{padding:0;margin:0;-webkit-touch-callout:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;}html{overflow:hidden;}body{position:fixed;top:0;left:0;overflow:hidden;width:100%;height:100%;}</style></head><body><div id="kline" style="display: block;"></div></body></html>';
@@ -445,6 +445,7 @@ class _DsxKlineState extends State<DsxKline> {
           //document.body.innerHTML = "window.devicePixelRatio="+window.devicePixelRatio+" dsxKline="+typeof(dsxKline);
         }
     ''';
+    
     eval(js, () {
       _isCreatedKline = true;
       if (widget.datas == null) {
@@ -460,6 +461,7 @@ class _DsxKlineState extends State<DsxKline> {
       return false;
     }
     String datas = widget.datas == null ? "[]" : jsonEncode(widget.datas);
+    print(widget.sides);
     String js = '''
       function update(datas){
         try{
